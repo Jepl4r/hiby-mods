@@ -44,7 +44,7 @@ sudo apt install squashfs-tools xorriso fontforge python3-fontforge
 
 ```bash
 # 1. Clone this repository
-git clone https://github.com/YOURUSERNAME/hiby-r3proii-custom-firmware
+git clone https://github.com/noisetta/hiby-r3proii-custom-firmware
 cd hiby-r3proii-custom-firmware
 
 # 2. Download the stock firmware from HiBy's website
