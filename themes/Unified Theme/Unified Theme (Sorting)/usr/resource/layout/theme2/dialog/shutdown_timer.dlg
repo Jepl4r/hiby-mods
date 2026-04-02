@@ -3,7 +3,7 @@
 		"viewgroup":{
 			"imageview":{
 				"name":"shutdown_timer_iv_icon",
-				"img_path":"shutdown\\shutdown.png",
+				"img_path":"mod_icons\\shutdown.png",
 				"x":145,
 				"y":25,
 				"imageview":true
