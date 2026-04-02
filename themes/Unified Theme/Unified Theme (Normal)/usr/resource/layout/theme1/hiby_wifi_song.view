@@ -16,7 +16,7 @@
 			"imageview":{
                 "name":"wifi_song_iv_logo",
                 "img_path":"wifi\\receive.png",
-				"x":57,
+				"x":60,
 				"y":520,
 				"w":365,
 				"h":100,
