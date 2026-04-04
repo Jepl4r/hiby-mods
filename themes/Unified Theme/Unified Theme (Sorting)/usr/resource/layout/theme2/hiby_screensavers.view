@@ -43,7 +43,7 @@
 				"text":"hiby_music",
 				"x":36,
 				"y":485,
-				"w":438,
+				"w":408,
 				"h":40,
 				"textview":true
 			},
@@ -54,7 +54,7 @@
 				"type":"roll|left|top",
 				"x":36,
 				"y":525,
-				"w":438,
+				"w":408,
 				"h":40,
 				"textview":true
 			},
