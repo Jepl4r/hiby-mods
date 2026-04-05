@@ -1,5 +1,12 @@
 {
 	"viewgroup":{
+		"imageview":{
+				"name":"wifi_search_iv_icon",
+				"img_path":"mod_icons\\wifi_search.png",
+				"x":190,
+				"y":140,
+				"imageview":true
+			},
 		"textview":{
 				"name":"tv_wifi_scan",
 				"size":28,

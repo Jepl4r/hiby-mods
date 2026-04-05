@@ -1,5 +1,12 @@
 {
 	"viewgroup":{
+		"imageview":{
+				"name":"bluetooth_search_iv_icon",
+				"img_path":"mod_icons\\bluetooth_search.png",
+				"x":190,
+				"y":140,
+				"imageview":true
+			},
 		"textview":{
 				"name":"tv_bt_scan",
 				"size":28,
