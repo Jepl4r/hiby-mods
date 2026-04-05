@@ -1,14 +1,13 @@
 {
 	"viewgroup":{
-		"viewgroup":{
-			"name":"screensavers_vg_timer",
-			"type":"hgl_view",
+		"imageview":{
+			"name":"screensavers_iv_bg",
+			"img_path":"screensavers\\text_bg_2.png",
 			"x":0,
-			"y":480,
+			"y":460,
 			"w":480,
-			"h":240,
-			"color":"0x50000000",
-			"viewgroup":true
+			"h":260,
+			"imageview":true
 		},
 		"numview":{
 				"name":"screensavers_nv_time",
@@ -43,7 +42,7 @@
 				"text":"hiby_music",
 				"x":36,
 				"y":485,
-				"w":438,
+				"w":408,
 				"h":40,
 				"textview":true
 			},
@@ -54,7 +53,7 @@
 				"type":"roll|left|top",
 				"x":36,
 				"y":525,
-				"w":438,
+				"w":408,
 				"h":40,
 				"textview":true
 			},
@@ -79,11 +78,11 @@
 		"content_y":0,
 		"content_w":480,
 		"content_h":720,
-		"scroll_max_x":480,
+		"scroll_max_x":0,
 		"scroll_min_x":0,
 		"scroll_max_y":0,
 		"scroll_min_y":-720,
-		"flag":"scroll",
+		"flag":"v_scroll",
 		"zorder":750,
 		"img_path":"screensavers\\bg.png",
 		"color_mode":"color_565",
