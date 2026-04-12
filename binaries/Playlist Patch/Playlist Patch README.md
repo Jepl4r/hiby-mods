@@ -15,7 +15,7 @@ The entire sub-button system: rendering, click detection, and menu targeting was
 
 The Playlist page (`FUN_004c18c0`) builds its list by adding **3 fixed items** at the top (Create, Save playlist, Load playlist), followed by the user's m3u playlists from the database.
 
-However, `FUN_0042a500(5)`, a system settings getter, returns a non-null value on this device (the language/locale pointer stored at `DAT_009666a0[2]`). Multiple code paths use this result as a boolean: if non-null, they assume there are **4 fixed items** instead of 3, producing an off-by-one error in three independent locations:
+However, `FUN_0042a500(5)`, a system settings getter, returns a non-null value (the language/locale pointer stored at `DAT_009666a0[2]`). Multiple code paths use this result as a boolean: if non-null, they assume there are **4 fixed items** instead of 3, producing an off-by-one error in three independent locations:
 
 1. **Click handler** (`0x4B3134`): when clicking the three-dot button, subtracts 4 instead of 3 from the visual index to compute the m3u playlist index, causing the menu to target the wrong playlist.
 
