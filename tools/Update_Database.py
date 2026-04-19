@@ -1006,7 +1006,8 @@ def rebuild_db(sd: str, embed_art_enabled: bool = True, resize_covers_enabled: b
     _INS_MEDIA2 = _INS_MEDIA.replace("MEDIA_TABLE", "MEDIA2_TABLE")
 
     cur.execute("DELETE FROM MEDIA2_TABLE")
-    cur.executemany(_INS_MEDIA2, media_rows)
+    media_album_sorted = sorted(media_rows, key=lambda r: (sanitize(r[3]), r[8], r[9]))
+    cur.executemany(_INS_MEDIA2, media_album_sorted)
     media_title_sorted = sorted(media_rows, key=lambda r: sort_key(sanitize(r[2])))
     cur.execute("DELETE FROM MEDIA_TABLE")
     cur.executemany(_INS_MEDIA, media_title_sorted)

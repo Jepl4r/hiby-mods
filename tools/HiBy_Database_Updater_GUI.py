@@ -786,7 +786,8 @@ def rebuild_db(sd, embed_art_enabled=True, resize_covers_enabled=False, on_progr
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
     _INS2 = _INS.replace("MEDIA_TABLE", "MEDIA2_TABLE")
 
-    cur.execute("DELETE FROM MEDIA2_TABLE"); cur.executemany(_INS2, media_rows)
+    media_album_sorted = sorted(media_rows, key=lambda r: (sanitize(r[3]), r[8], r[9]))
+    cur.execute("DELETE FROM MEDIA2_TABLE"); cur.executemany(_INS2, media_album_sorted)
     media_sorted = sorted(media_rows, key=lambda r: sort_key(sanitize(r[2])))
     cur.execute("DELETE FROM MEDIA_TABLE"); cur.executemany(_INS, media_sorted)
     cur.execute("DELETE FROM MEDIA3_TABLE")
