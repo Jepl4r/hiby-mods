@@ -87,6 +87,8 @@ Two hook points add `"app_sync"` to the settings name list. Each replaces two `l
 
 **RS2 trampoline** at `0x7f2e40` (28 B): same logic, stores at `$sp+0x44`, jumps to `0x4e6b50`.
 
+> Both RS2 and non-RS2 functions were patched as I was not sure if the binary uses them together to populate the settings page.
+
 ### Click Handler
 
 Replaces the dispatch call at `0x4e14c0`.
