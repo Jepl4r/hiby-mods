@@ -1,4 +1,4 @@
-# App Sync Patch — ADB over USB for HiBy R3 Pro II
+# App Sync Patch — Enable ADB automatically over USB for HiBy R3 Pro II
 
 **Binary:** `hiby_player` ELF32 MIPS32r2 Little Endian (Ingenic X1600, HiByOS)
 **Binary SHA256:** `9c3b5178cf155b75f0b327ebc01d03b8075ba883723d6781d326bddf8344f8ee`
