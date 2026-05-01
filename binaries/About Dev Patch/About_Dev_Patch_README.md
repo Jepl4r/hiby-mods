@@ -1,6 +1,6 @@
 ﻿# HiBy R3 Pro II — About Dev GitHub QR Patch
 
- SHA256: `6937b83454ae0d8363b5b3e3528494f6a0cf60ec6cfa1dcec48d92673512c744` 
+ SHA256: `5a43cac82d3ad3c98eeb9ed0c93bdb1a8b16d8c68ee64d7f131097517b87c7c0` 
 
 ---
 
@@ -156,4 +156,3 @@ This patched binary also contains the follwing patches:
 - DB Manager Patch
 - Playlist Patch
 - DB Manager Dialog Patch
-- Sync Patch with increased binary size
