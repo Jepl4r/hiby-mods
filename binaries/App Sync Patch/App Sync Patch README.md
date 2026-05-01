@@ -1,7 +1,8 @@
 # App Sync Patch — Enable ADB automatically over USB for HiBy R3 Pro II
+# Also increase binary size for future patches
 
 **Binary:** `hiby_player` ELF32 MIPS32r2 Little Endian (Ingenic X1600, HiByOS)
-**Binary SHA256:** `9c3b5178cf155b75f0b327ebc01d03b8075ba883723d6781d326bddf8344f8ee`
+**Binary SHA256:** `6e99b51eaf5003f0d1aa63bf8def71616b425d795ab246a5b7fd82f1df20e1e2`
 **Binary size:** 5,598,244 bytes (unchanged by patch)
 
 ---
@@ -9,8 +10,6 @@
 ## Overview
 
 This patch adds an **App Sync** toggle to the device's system settings. When enabled and the device is connected via USB, ADB starts automatically instead of mass storage. A custom view page (`hiby_app_sync.view`) is displayed during sync, with a stop button to disable ADB and return to normal operation.
-
-The patch does **not** modify the binary size. All injected code lives in two zero-filled code cave regions. All four pre-existing patches (Sorting, DB Manager, Playlist, DB Manager Dialog) are fully preserved.
 
 ---
 
@@ -314,7 +313,52 @@ The view must contain a clickable element named `app_sync_stop` for the stop but
 - The toggle state table at `0x819590` — untouched
 - The main event loop call at `0x48bbd0` — untouched
 - All pre-existing patches: Sorting, DB Manager, Playlist, DB Manager Dialog
-- Binary size: 5,598,244 bytes
+
+---
+
+# Binary Size Expansion (10 MiB)
+
+Increased binary file size to allow more room for future patching work, while preserving current behavior.
+
+Target size used:
+- `10 MiB = 10,485,760 bytes`
+
+## Method Used
+
+1. Read current file size.
+2. Confirm ELF is valid and inspect `PT_LOAD` segments.
+3. Ensure all existing loadable file data ends before EOF.
+4. Append `0x00` bytes at the end of the file until it reaches 10 MiB.
+
+No bytes were inserted in the middle of the file, and no offsets were shifted.
+
+## Why This Is Safe
+
+`PT_LOAD` segment file data already ended before EOF, so adding trailing bytes does not move:
+
+- instruction addresses
+- string/data addresses
+- existing patch offsets
+
+It only adds unused trailing space.
+
+## Actual Values From This Expansion
+
+- Original size: `5,598,244 bytes`
+- New size: `10,485,760 bytes`
+- Last loadable segment file end: `0x556560` (`5,596,512 bytes`)
+- Trailing padding after last loadable segment: `4,889,248 bytes`
+
+## Verification Performed
+
+1. Confirmed final size is exactly `10,485,760` bytes.
+2. Confirmed tail bytes are zero-padded.
+3. Confirmed ELF is still parsed correctly by LLDB (`mipsr2el` target loads successfully).
+
+## Notes
+
+- This expansion used **10 MiB** (binary units), not decimal 10,000,000 bytes.
+- If needed, the file can be resized later to a different exact target.
 
 ---
 
