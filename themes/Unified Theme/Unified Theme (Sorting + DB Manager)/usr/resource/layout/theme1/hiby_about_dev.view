@@ -196,7 +196,7 @@
 				"imageview":true
 			},
 			"imageview":{
-				"name":"about_dev_github",
+				"name":"about_dev_iv_post_bar",
 				"img_path":"about_dev\\github.png",
 				"x":366,
 				"y":460,
